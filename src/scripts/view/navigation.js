@@ -33,7 +33,7 @@ let aTag = nav.getElementsByTagName("a");
 let medQuery = window.matchMedia("(max-width:576px)");
 let barMenu = nav.querySelector(".menu-toggle");
 let logo = nav.querySelector(".logo");
-const i;
+let i;
 window.onscroll = function () {
   if (window.pageYOffset > 100) {
     nav.style.background = "#fff";
