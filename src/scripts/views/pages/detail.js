@@ -4,9 +4,9 @@ import RestaurantSource from "../../data/source";
 import { createRestaurantJumbotronTemplate } from "../templates/template-creator";
 import { createRestaurantDetailTemplate } from "../templates/template-creator";
 import { createRestaurantReviewTemplate } from "../templates/template-creator";
-// import LikeButtonPresenter from '../../utils/like-button-presenter';
 import FormReviewInitiator from "../../utils/form-review-initiator";
-// import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
+import LikeButtonInitiator from '../../utils/like-button-initiator';
+import FavoriteRestaurantIdb from '../../data/idb';
 
 const Detail = {
   async render() {
@@ -28,6 +28,7 @@ const Detail = {
           </div>
         </div>
       </div>
+      <div id="likeButtonContainer"></div>
     `;
   },
 
@@ -38,6 +39,7 @@ const Detail = {
     const reviewContainer = document.querySelector(".review-item");
     const detailForm = document.querySelector(".detail-form");
     const loadingElement = document.querySelector("loading-indicator");
+    const container = document.querySelector('.detail-container');
 
     try {
       const data = await RestaurantSource.detailRestaurant(url.id);
@@ -51,20 +53,18 @@ const Detail = {
         data.restaurant
       );
 
-      // loading.style.display = "none";
-
-      // await LikeButtonPresenter.init({
-      //   likeButtonContainer: document.querySelector("#likeButtonContainer"),
-      //   favoriteRestaurants: FavoriteRestaurantIdb,
-      //   restaurant: {
-      //     id: data.restaurant.id,
-      //     name: data.restaurant.name,
-      //     description: data.restaurant.description,
-      //     pictureId: data.restaurant.pictureId,
-      //     city: data.restaurant.city,
-      //     rating: data.restaurant.rating,
-      //   },
-      // });
+      await LikeButtonInitiator.init({
+        likeButtonContainer: document.querySelector("#likeButtonContainer"),
+        favoriteRestaurants: FavoriteRestaurantIdb,
+        restaurant: {
+          id: data.restaurant.id,
+          name: data.restaurant.name,
+          description: data.restaurant.description,
+          pictureId: data.restaurant.pictureId,
+          city: data.restaurant.city,
+          rating: data.restaurant.rating,
+        },
+      });
 
       await FormReviewInitiator.init({
         formReviewContainer: document.querySelector("#formReviewContainer"),
@@ -72,7 +72,6 @@ const Detail = {
       });
     } catch (error) {
       console.log(error);
-      const container = document.querySelector('.detail-container');
       jumboContainer.innerHTML = "<my-jumbo></my-jumbo>";
       container.innerHTML = "<error-message></error-message>";
       detailContainer.style.display = "none";

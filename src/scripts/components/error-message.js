@@ -8,7 +8,8 @@ class ErrorMessage extends HTMLElement {
     render() {
       this.innerHTML = `
         <div style="text-align:center;">
-          <h1>Gagal memuat konten!</h1>
+          <h2>Failed to load content!</h2>
+          <p>Please refresh to try again.</p>
             <img src = ${imageserror} style="  display: block;
             margin-left: auto;
             margin-right: auto;
