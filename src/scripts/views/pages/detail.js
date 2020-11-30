@@ -1,10 +1,8 @@
-// export default detail;
-import UrlParser from "../../routes/url-parser";
-import RestaurantSource from "../../data/source";
-import { createRestaurantJumbotronTemplate } from "../templates/template-creator";
-import { createRestaurantDetailTemplate } from "../templates/template-creator";
-import { createRestaurantReviewTemplate } from "../templates/template-creator";
-import FormReviewInitiator from "../../utils/form-review-initiator";
+import UrlParser from '../../routes/url-parser';
+import RestaurantSource from '../../data/source';
+import { createRestaurantJumbotronTemplate, createRestaurantDetailTemplate, createRestaurantReviewTemplate } from '../templates/template-creator';
+
+import FormReviewInitiator from '../../utils/form-review-initiator';
 import LikeButtonInitiator from '../../utils/like-button-initiator';
 import FavoriteRestaurantIdb from '../../data/idb';
 
@@ -34,27 +32,27 @@ const Detail = {
 
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-    const jumboContainer = document.querySelector(".jumbotron-detail");
-    const detailContainer = document.querySelector(".detail-resto");
-    const reviewContainer = document.querySelector(".review-item");
-    const detailForm = document.querySelector(".detail-form");
-    const loadingElement = document.querySelector("loading-indicator");
+    const jumboContainer = document.querySelector('.jumbotron-detail');
+    const detailContainer = document.querySelector('.detail-resto');
+    const reviewContainer = document.querySelector('.review-item');
+    const detailForm = document.querySelector('.detail-form');
+    const loadingElement = document.querySelector('loading-indicator');
     const container = document.querySelector('.detail-container');
 
     try {
       const data = await RestaurantSource.detailRestaurant(url.id);
       jumboContainer.innerHTML = createRestaurantJumbotronTemplate(
-        data.restaurant
+        data.restaurant,
       );
       detailContainer.innerHTML = createRestaurantDetailTemplate(
-        data.restaurant
+        data.restaurant,
       );
       reviewContainer.innerHTML = createRestaurantReviewTemplate(
-        data.restaurant
+        data.restaurant,
       );
 
       await LikeButtonInitiator.init({
-        likeButtonContainer: document.querySelector("#likeButtonContainer"),
+        likeButtonContainer: document.querySelector('#likeButtonContainer'),
         favoriteRestaurants: FavoriteRestaurantIdb,
         restaurant: {
           id: data.restaurant.id,
@@ -67,18 +65,18 @@ const Detail = {
       });
 
       await FormReviewInitiator.init({
-        formReviewContainer: document.querySelector("#formReviewContainer"),
+        formReviewContainer: document.querySelector('#formReviewContainer'),
         id: data.restaurant.id,
       });
     } catch (error) {
       console.log(error);
-      jumboContainer.innerHTML = "<my-jumbo></my-jumbo>";
-      container.innerHTML = "<error-message></error-message>";
-      detailContainer.style.display = "none";
-      reviewContainer.style.display = "none";
-      detailForm.style.display = "none";
+      jumboContainer.innerHTML = '<my-jumbo></my-jumbo>';
+      container.innerHTML = '<error-message></error-message>';
+      detailContainer.style.display = 'none';
+      reviewContainer.style.display = 'none';
+      detailForm.style.display = 'none';
     } finally {
-      loadingElement.style.display = "none";
+      loadingElement.style.display = 'none';
     }
   },
 };

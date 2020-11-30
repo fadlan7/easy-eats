@@ -28,35 +28,34 @@ const FormReviewInitiator = {
         review: inputReview.value,
       };
 
-      if (inputName.value === '' && inputReview.value === ''){
+      if (inputName.value === '' && inputReview.value === '') {
         Swal.fire(
           'Oops..',
           'Name and Review can\'t be empty!',
-          'warning'
-        )
-      }
-      else if (inputName.value === '') {
+          'warning',
+        );
+      } else if (inputName.value === '') {
         Swal.fire(
           'Oops..',
           'Name can\'t be empty!',
-          'warning'
-        )
+          'warning',
+        );
       } else if (inputReview.value === '') {
         Swal.fire(
           'Oops..',
           'Review can\'t be empty!',
-          'warning'
-        )
+          'warning',
+        );
       } else {
         await RestaurantSource.reviewRestaurant(reviewData);
         form.reset();
         this._renderReview(reviewData.name, reviewData.review);
         Swal.fire({
-          icon:'success',
-          title:'Your review has been submitted',
+          icon: 'success',
+          title: 'Your review has been submitted',
           showConfirmButton: false,
-          timer: 1500
-        })
+          timer: 1500,
+        });
       }
     });
   },

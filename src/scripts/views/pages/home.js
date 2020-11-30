@@ -4,11 +4,9 @@ import { createRestaurantItemTemplate } from '../templates/template-creator';
 const Home = {
 
   async render() {
-
     return `
       <my-jumbo></my-jumbo>
       <h2 class="judul">Home Page</h2>
-
 
       <span class="errorr"></span>
       <loading-indicator></loading-indicator>
@@ -29,15 +27,14 @@ const Home = {
       restaurants.forEach((restaurant) => {
         restaurantContainer.innerHTML += createRestaurantItemTemplate(restaurant);
       });
-
     } catch (error) {
       console.log(error);
       errorr.innerHTML = '<error-message></error-message>';
-      judul.style.display='none';
+      judul.style.display = 'none';
     } finally {
       loadingElement.style.display = 'none';
     }
-  }
+  },
 };
 
 export default Home;

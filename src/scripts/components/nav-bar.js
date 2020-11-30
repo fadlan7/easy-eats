@@ -28,4 +28,4 @@ class MyNav extends HTMLElement {
   }
 }
 
-customElements.define("nav-bar", MyNav);
+customElements.define('nav-bar', MyNav);

@@ -1,10 +1,10 @@
 class Jumbotron extends HTMLElement {
-    connectedCallback() {
-      this.render();
-    }
+  connectedCallback() {
+    this.render();
+  }
 
-    render() {
-      this.innerHTML = `
+  render() {
+    this.innerHTML = `
         <div class="jumbotron" role="img" aria-label="jumbotron" title="jumbotron">
           <div id="black"></div>
           <div class="jumbotron-inner">
@@ -12,7 +12,7 @@ class Jumbotron extends HTMLElement {
           </div>
         </div>
     `;
-    }
   }
+}
 
-  customElements.define("my-jumbo", Jumbotron);
+customElements.define('my-jumbo', Jumbotron);
