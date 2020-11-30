@@ -1,5 +1,6 @@
 {
 	"name": "Easy Eats",
+	"short_name" : "Easy Eats",
 	"description": "Find your favorite restaurants",
 	"start_url": "/index.html",
 	"background_color": "#ffffff",

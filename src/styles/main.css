@@ -350,7 +350,7 @@ article:hover img {
   padding: 10px 20px 5px;
 }
 
-.text a:link{
+.text a:link {
   text-decoration: none;
 }
 
@@ -461,14 +461,14 @@ article:hover img {
   background-color: #666;
 }
 
-.review-card{
+.review-card {
   display: flex;
   padding: 10px;
   border-radius: 8px;
   box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
 }
 
-.review-name{
+.review-name {
   font-weight: 700;
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -481,12 +481,12 @@ article:hover img {
   hyphens: auto;
 }
 
-.review-date{
+.review-date {
   font-size: 95%;
   padding-bottom: 4px;
 }
 
-.review-message{
+.review-message {
   overflow-wrap: break-word;
   word-wrap: break-word;
   -ms-word-break: break-all;
@@ -497,7 +497,6 @@ article:hover img {
   -webkit-hyphens: auto;
   hyphens: auto;
 }
-
 
 .detail-form {
   /* margin: 80px 0; */
@@ -513,14 +512,14 @@ article:hover img {
 
 .detail-form input {
   width: 100%;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   padding: 10px;
   margin-bottom: 30px;
 }
 
 .detail-form textarea {
   width: 100%;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   padding: 10px;
   height: 15vh;
   margin-bottom: 20px;
@@ -528,6 +527,7 @@ article:hover img {
 
 .detail-form button {
   padding: 10px 40px;
+  min-height: 48px;
   background-color: #4ac061;
   border: none;
   cursor: pointer;
@@ -536,7 +536,7 @@ article:hover img {
   border: 2px solid #4ac061;
 }
 
-.detail-form button:hover{
+.detail-form button:hover {
   background-color: transparent;
   color: #000;
 }
@@ -693,13 +693,12 @@ loading-indicator {
 }
 @keyframes lds-roller {
   0% {
-      transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
-      transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
-
 
 /*like button*/
 .like {
