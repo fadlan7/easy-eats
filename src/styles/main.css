@@ -238,7 +238,6 @@ body {
   min-height: 460px;
   width: 100vw;
   text-align: center;
-  /* background-image: url("../public/images/heros/hero-image_2.jpg"); */
   background-position: center;
   background-color: grey;
   position: relative;
@@ -295,27 +294,30 @@ body {
 }
 
 .grid {
+  margin: 8px auto;
+  width: 90%;
+  max-width: 1350px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 20px;
-  align-items: stretch;
+  grid-template-columns: 1fr;
+  gap: 16px;
 }
 
 .grid > article {
+  position: relative;
+  overflow: hidden;
   border: 1px solid #ccc;
-  border-radius: 6px;
+  transition: 0.3s ease;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px -4px rgba(0, 0, 0, 0.2);
+  background-color: white;
 }
 
 .grid > article img {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-radius: 6px 6px 0 0;
   transition: transform 0.6s ease-in-out;
-}
-
-article {
-  transition: 0.3s ease;
+  object-position: center;
 }
 
 article:hover,
@@ -370,13 +372,28 @@ article:hover img {
 }
 
 /*Detail Page*/
-/* Boxes */
 .detail-container {
+  width: 100%;
   display: grid;
+  grid-template-columns: repeat(auto-fit);
   grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  padding: 0 10px 0 10px;
-  margin: 0 20px 0 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.detail-resto-wrapper {
+  /* display: flex;
+  flex-direction: column;
+  box-sizing: border-box; */
+
+  /* height: 200px;
+  border: 1px solid green; */
+  grid-column: 1/3;
+  grid-row: 1;
+  position: relative;
+  box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+  padding: 10px;
 }
 
 .box {
@@ -399,16 +416,16 @@ article:hover img {
 
 #rating .star {
   font-size: 20px;
-  /* display: inline-block; */
   font-family: Times;
   line-height: 1;
   letter-spacing: 3px;
   background: linear-gradient(
     90deg,
     #fc0 calc(var(--rating) / 5 * 100%),
-    #c5c5c5 calc(var(--rating) / 5 * 100%)
+    #000 calc(var(--rating) / 5 * 100%)
   );
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -428,22 +445,46 @@ article:hover img {
 /*review*/
 
 .review-resto {
+  /* margin-top: 20px;
+  box-sizing: border-box; */
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit);
+  grid-row-gap: 20px;
+  min-height: 200px;
+  grid-column: 3;
+  grid-row: 1/2;
+  height: 100%;
+
+}
+
+.review-container {
+  /* width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
-  /* max-height: 500px; */
+  justify-content: center;
+  margin: 20px 0;
+  padding-bottom: 20px;
+  box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+  box-sizing: border-box; */
+
+  grid-column: 3;
+  grid-row: 1/2;
+/* max-height: 500px; */
+  box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+  border-radius: 8px;
 }
 
 .review-item {
+  margin: 8px auto;
   width: 90%;
-  padding: 20px;
-  padding-bottom: 10px;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 10px;
-  max-height: 400px;
+  gap: 16px;
   overflow: auto;
+  max-height: 300px;
+  padding-top: 2px;
 }
 
 .review-item::-webkit-scrollbar-track {
@@ -466,6 +507,7 @@ article:hover img {
   padding: 10px;
   border-radius: 8px;
   box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+  margin: 0 10px;
 }
 
 .review-name {
@@ -499,9 +541,21 @@ article:hover img {
 }
 
 .detail-form {
-  /* margin: 80px 0; */
+  /* width: 100%;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+  box-sizing: border-box; */
+
+  grid-column: 3;
+  grid-row: 2/2;
   width: 100%;
-  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+  box-sizing: border-box;
 }
 
 .detail-form form {
@@ -510,11 +564,13 @@ article:hover img {
   text-align: left;
 }
 
+
 .detail-form input {
   width: 100%;
   font-family: "Lato", sans-serif;
   padding: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  border: 1px black solid;
 }
 
 .detail-form textarea {
@@ -523,6 +579,7 @@ article:hover img {
   padding: 10px;
   height: 15vh;
   margin-bottom: 20px;
+  resize: vertical;
 }
 
 .detail-form button {

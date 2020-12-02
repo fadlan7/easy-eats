@@ -13,7 +13,7 @@ class ErrorMessage extends HTMLElement {
             <img src = ${imageserror} style="  display: block;
             margin-left: auto;
             margin-right: auto;
-            width: 80%;"/>
+            width: 80%;" alt="error image"/>
         </div>
       `;
   }

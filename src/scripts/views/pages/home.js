@@ -10,7 +10,9 @@ const Home = {
 
       <span class="errorr"></span>
       <loading-indicator></loading-indicator>
-      <div class="grid container"></div>
+      <div class="resto-item-container" style="width: 100%; ">
+        <div class="grid"></div>
+      </div>
     `;
   },
 

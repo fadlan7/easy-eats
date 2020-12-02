@@ -2,6 +2,7 @@ import API_ENDPOINT from '../../global/api-endpoint';
 
 const createRestaurantItemTemplate = (restaurant) => `
       <article class="resto-list" tabindex="0">
+      <a href="/#/detail/${restaurant.id}" style="color: inherit; font: inherit; text-decoration: none;">
         <div class="resto-image">
         <img src=${API_ENDPOINT.IMG_RESTAURANT}/${restaurant.pictureId} class="lazyload" alt=${restaurant.name} crossorigin="anonymous" />
           <div class="text-block">
@@ -20,6 +21,8 @@ const createRestaurantItemTemplate = (restaurant) => `
           <span class="material-icons">location_on</span>
             <span tabindex="0">${restaurant.city}</span>
         </div>
+
+      </a>
       </article>
     `;
 
@@ -36,6 +39,7 @@ const createRestaurantJumbotronTemplate = (restaurant) => `
 `;
 
 const createRestaurantDetailTemplate = (restaurant) => `
+
     <h2 class="judul" tabindex="0">Restaurant Details</h2>
       <div class="resto-detail-1">
         <div class="resto-detail-part1">
@@ -43,7 +47,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
             <tbody>
               <tr>
                 <td><span class="material-icons">storefront</span></td>
-                <td><h4 class="title-restaurant" tabindex="0">${restaurant.name}</h4></td>
+                <td><h3 class="title-restaurant" tabindex="0">${restaurant.name}</h3></td>
               </tr>
               <tr>
                 <td><span class="material-icons">location_on</span></td>
@@ -86,7 +90,9 @@ const createRestaurantDetailTemplate = (restaurant) => `
           <span class="drink-name" tabindex="0">${drink.name}</span>
         `,
   )}
-      </div>
+
+    </div>
+
 `;
 
 const createRestaurantReviewTemplate = (restaurant) => `
@@ -116,8 +122,8 @@ const createRestaurantReviewTemplate = (restaurant) => `
 
 const createFormReviewTemplate = () => `
   <form>
-    <input type="text" name="nama" class="inputName" id="inputName" placeholder="Type your name">
-    <textarea name="review" class="inputReview" id="inputReview" placeholder="Type your review"></textarea>
+    <input type="text" aria-label="Type your name here" name="nama" class="inputName" id="inputName" placeholder="Type your name">
+    <textarea name="review" aria-label="Type your review here" class="inputReview" id="inputReview" placeholder="Type your review"></textarea>
     <button type="submit" class="btnSubmit">Add review</button>
   </form>
 `;

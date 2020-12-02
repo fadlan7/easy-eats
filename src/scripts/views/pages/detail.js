@@ -14,15 +14,18 @@ const Detail = {
 
       <loading-indicator></loading-indicator>
       <div class="detail-container">
-        <div class="box detail-resto"></div>
+          <div class="detail-resto-wrapper"></div>
 
-        <div class="box review-resto">
-          <h2 class="judul" tabindex="0">Restaurant Review</h2>
-          <div class="review-item box"></div>
+          <div class="review-resto">
+            <div class="review-container">
+              <h2 class="judul" tabindex="0">Restaurant Review</h2>
+              <div class="review-item"></div>
+            </div>
 
-          <div class="detail-form">
-            <h2 class="judul" tabindex="0">Add New Review</h2>
-            <div id="formReviewContainer"></div>
+            <div class="detail-form">
+              <h2 class="judul" tabindex="0">Add New Review</h2>
+              <div id="formReviewContainer"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -33,7 +36,7 @@ const Detail = {
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const jumboContainer = document.querySelector('.jumbotron-detail');
-    const detailContainer = document.querySelector('.detail-resto');
+    const detailContainer = document.querySelector('.detail-resto-wrapper');
     const reviewContainer = document.querySelector('.review-item');
     const detailForm = document.querySelector('.detail-form');
     const loadingElement = document.querySelector('loading-indicator');

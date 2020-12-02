@@ -13,7 +13,7 @@ class NoDataFound extends HTMLElement {
             <img src = ${noData} style="  display: block;
             margin-left: auto;
             margin-right: auto;
-            width: 80%;"/>
+            width: 80%;" alt="no data image"/>
         </div>
       `;
   }
