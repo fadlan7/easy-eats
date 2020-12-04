@@ -1,9 +1,8 @@
-import { itActsAsFavoriteRestaurantModel } from './contract/favoriteRestaurantContract';
+import { itActsAsFavoriteRestaurantModel } from "./contract/favoriteRestaurantContract";
 
 let favoriteRestaurant = [];
 
 const FavoriteRestaurantArray = {
-
   getRestaurant(id) {
     if (!id) {
       return;
@@ -17,7 +16,7 @@ const FavoriteRestaurantArray = {
   },
 
   putRestaurant(restaurant) {
-    if (!restaurant.hasOwnProperty('id')) {
+    if (!restaurant.hasOwnProperty("id")) {
       return;
     }
 
@@ -30,14 +29,29 @@ const FavoriteRestaurantArray = {
   },
 
   deleteRestaurant(id) {
-    // cara boros menghapus film dengan meng-copy film yang ada
-    // kecuali film dengan id == id
-    favoriteRestaurant = favoriteRestaurant.filter((restaurant) => restaurant.id != id);
+    // cara boros menghapus restaurant dengan meng-copy restaurant yang ada
+    // kecuali restaurant dengan id == id
+    favoriteRestaurant = favoriteRestaurant.filter(
+      (restaurant) => restaurant.id != id
+    );
   },
+
+  // searchRestaurants(query) {
+  //   return this.getAllRestaurants().filter((restaurant) => {
+  //     const loweredCaseRestaurantTitle = (restaurant.title || "-").toLowerCase();
+  //     const jammedRestaurantTitle = loweredCaseRestaurantTitle.replace(/\s/g, "");
+
+  //     const loweredCaseQuery = query.toLowerCase();
+  //     const jammedQuery = loweredCaseQuery.replace(/\s/g, "");
+
+  //     return jammedRestaurantTitle.indexOf(jammedQuery) != -1;
+  //   });
+  // },
+
 };
 
-describe('Favorite Restaurant Array Contract Test Implementation', () => {
-  afterEach(() => favoriteRestaurant = []);
+describe("Favorite Restaurant Array Contract Test Implementation", () => {
+  afterEach(() => (favoriteRestaurant = []));
 
   itActsAsFavoriteRestaurantModel(FavoriteRestaurantArray);
 });

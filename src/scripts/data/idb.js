@@ -33,6 +33,10 @@ const FavoriteRestaurantIdb = {
   async deleteRestaurant(id) {
     return (await dbPromise).delete(OBJECT_STORE_NAME, id);
   },
+
+  async searchRestaurants(query){
+
+  },
 };
 
 export default FavoriteRestaurantIdb;
