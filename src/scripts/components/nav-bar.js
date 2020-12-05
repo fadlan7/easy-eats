@@ -8,7 +8,7 @@ class MyNav extends HTMLElement {
           <nav class="nav-container container">
             <a href="#/" class="home-link">
                 <div class="logo">
-                    <img alt="logo" src="icon/logo.png">
+                    <img class="lazyload" alt="logo" data-src="icon/logo.png">
                 </div>
             </a>
             <button type="button" class="menu-toggle" aria-label="Open navigation menu">
