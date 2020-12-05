@@ -19,11 +19,9 @@ const Favorite = {
     const judul = document.querySelector('.judul');
 
     if (restaurant.length === 0) {
-      noData.innerHTML = '<no-data-found></no-data-found>';
-      restaurantContainer.style.display = 'none';
       judul.style.display = 'none';
+      noData.innerHTML = '<no-data-found></no-data-found>';
     }
-    // eslint-disable-next-line no-shadow
     restaurant.forEach((restaurant) => {
       restaurantContainer.innerHTML += createRestaurantItemTemplate(restaurant);
     });
