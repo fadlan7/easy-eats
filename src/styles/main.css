@@ -634,13 +634,13 @@ article:hover img {
   margin: auto;
   /* margin-bottom: 180px; */
   padding: 40px 0;
-  color: white;
+  color: #000;
   text-align: center;
 }
 
-.footer_content .greeeen {
+/* .footer_content .greeeen {
   color: #4ac061;
-}
+} */
 
 /*Loading*/
 loading-indicator {

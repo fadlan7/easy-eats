@@ -1,4 +1,4 @@
-import API_ENDPOINT from '../../global/api-endpoint';
+import API_ENDPOINT from "../../global/api-endpoint";
 
 const createRestaurantItemTemplate = (restaurant) => `
       <article class="resto-list" tabindex="0">
@@ -26,6 +26,34 @@ const createRestaurantItemTemplate = (restaurant) => `
       </article>
     `;
 
+const createSkeletonRestaurantTemplate = (count) => {
+  let template = "";
+
+  for (let i = 0; i < count; i++) {
+    template += `
+      <article class="resto-list" tabindex="0">
+        <div class="resto-image">
+        <img src="./images/heros/placeholder.png" alt="skeleton image" crossorigin="anonymous" />
+          <div class="text-block">
+            <span tabindex="0">4</span>
+          </div>
+        </div>
+        <div class="text">
+          <a class="card-restaurant-link" style="color:black">
+              <h3>Restaurant Name</h3>
+          </a>
+          <p tabindex="0">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis, enim.</p>
+        </div>
+        <hr>
+        <div class="card-footer">
+            <tabindex="0">Restaurant City</tabindex=>
+        </div>
+      </article>
+        `;
+  }
+  return template;
+};
+
 const createRestaurantJumbotronTemplate = (restaurant) => `
     <div id="black"></div>
     <div class="jumbotron-inner-detail">
@@ -47,7 +75,9 @@ const createRestaurantDetailTemplate = (restaurant) => `
             <tbody>
               <tr>
                 <td><span class="material-icons">storefront</span></td>
-                <td><h3 class="title-restaurant" tabindex="0">${restaurant.name}</h3></td>
+                <td><h3 class="title-restaurant" tabindex="0">${
+                  restaurant.name
+                }</h3></td>
               </tr>
               <tr>
                 <td><span class="material-icons">location_on</span></td>
@@ -58,9 +88,13 @@ const createRestaurantDetailTemplate = (restaurant) => `
         </div>
 
         <div class="resto-detail-part2">
-          <div id="rating" aria-label="Rating: ${restaurant.rating}" tabindex="0">
+          <div id="rating" aria-label="Rating: ${
+            restaurant.rating
+          }" tabindex="0">
           <span class="text">${restaurant.rating}</span>
-          <div class="star" style="--rating: ${restaurant.rating};" id="star" data-rating="${restaurant.rating}">★★★★★</div>
+          <div class="star" style="--rating: ${
+            restaurant.rating
+          };" id="star" data-rating="${restaurant.rating}">★★★★★</div>
           </div>
         </div>
       </div>
@@ -70,26 +104,26 @@ const createRestaurantDetailTemplate = (restaurant) => `
 
         <h3 tabindex="0">Categories</h3>
           ${restaurant.categories
-    .map(
-      (categori) => `
+            .map(
+              (categori) => `
             <span class="category-name" tabindex="0">${categori.name}</span>
-          `,
-    )
-    .join('')}
+          `
+            )
+            .join("")}
 
         <h3 tabindex="0">Foods</h3>
         ${restaurant.menus.foods.map(
-    (food) => `
+          (food) => `
           <span class="food-name" tabindex="0">${food.name}</span>
-        `,
-  )}
+        `
+        )}
 
         <h3 tabindex="0">Drinks</h3>
         ${restaurant.menus.drinks.map(
-    (drink) => `
+          (drink) => `
           <span class="drink-name" tabindex="0">${drink.name}</span>
-        `,
-  )}
+        `
+        )}
 
     </div>
 
@@ -97,8 +131,8 @@ const createRestaurantDetailTemplate = (restaurant) => `
 
 const createRestaurantReviewTemplate = (restaurant) => `
       ${restaurant.customerReviews
-    .map(
-      (review) => `
+        .map(
+          (review) => `
           <div class="review-card">
             <span class="material-icons" style="margin-right:10px">
             account_circle
@@ -115,9 +149,9 @@ const createRestaurantReviewTemplate = (restaurant) => `
               </div>
             </div>
           </div>
-        `,
-    )
-    .join('')}
+        `
+        )
+        .join("")}
 `;
 
 const createFormReviewTemplate = () => `
@@ -142,6 +176,7 @@ const createLikedButtonTemplate = () => `
 
 export {
   createRestaurantItemTemplate,
+  createSkeletonRestaurantTemplate,
   createRestaurantJumbotronTemplate,
   createRestaurantDetailTemplate,
   createRestaurantReviewTemplate,
