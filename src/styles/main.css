@@ -212,9 +212,9 @@ body {
   min-height: 460px;
   width: 100vw;
   text-align: center;
-  background-image: url("../public/images/heros/hero-image_2.jpg");
+  background-image: url("/images/hero-image_2-xl.jpg");
   background-position: center;
-  background-color: grey;
+  background-color: rgb(128, 128, 128);
   position: relative;
 }
 

@@ -33,7 +33,10 @@ const createSkeletonRestaurantTemplate = (count) => {
     template += `
       <article class="resto-list" tabindex="0">
         <div class="resto-image">
-        <img src="./images/heros/placeholder.png" alt="skeleton image" crossorigin="anonymous" />
+          <img src="./images/placeholder-large.jpg"
+          srcset="./images/placeholder-small.jpg 480w, ./images/placeholder-large.jpg 800w"
+          sizes="(max-width: 600px) 480px, 800px"
+          alt="skeleton image" crossorigin="anonymous" />
           <div class="text-block">
             <span tabindex="0">4</span>
           </div>
@@ -63,7 +66,7 @@ const createRestaurantJumbotronTemplate = (restaurant) => `
         <p tabindex="0">${restaurant.description}</p>
       </div>
     </div>
-    <img src=${API_ENDPOINT.IMG_RESTAURANT}/${restaurant.pictureId} alt=${restaurant.name} crossorigin="anonymous"/>
+    <img src=${API_ENDPOINT.IMG_RESTAURANT_LARGE}/${restaurant.pictureId} alt=${restaurant.name} crossorigin="anonymous"/>
 `;
 
 const createRestaurantDetailTemplate = (restaurant) => `
