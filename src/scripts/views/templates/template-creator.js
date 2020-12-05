@@ -4,7 +4,7 @@ const createRestaurantItemTemplate = (restaurant) => `
       <article class="resto-list" tabindex="0">
       <a href="/#/detail/${restaurant.id}" style="color: inherit; font: inherit; text-decoration: none;">
         <div class="resto-image">
-        <img src=${API_ENDPOINT.IMG_RESTAURANT}/${restaurant.pictureId} class="lazyload" alt=${restaurant.name} crossorigin="anonymous" />
+        <img class="lazyload" data-src=${API_ENDPOINT.IMG_RESTAURANT}/${restaurant.pictureId} alt=${restaurant.name} crossorigin="anonymous" />
           <div class="text-block">
           <span class="material-icons" tabindex="0">star_rate</span>
             <span tabindex="0">${restaurant.rating}</span>
@@ -33,7 +33,7 @@ const createSkeletonRestaurantTemplate = (count) => {
     template += `
       <article class="resto-list" tabindex="0">
         <div class="resto-image">
-          <img src="./images/placeholder-large.jpg"
+          <img class="lazyload" data-src="./images/placeholder-large.jpg"
           srcset="./images/placeholder-small.jpg 480w, ./images/placeholder-large.jpg 800w"
           sizes="(max-width: 600px) 480px, 800px"
           alt="skeleton image" crossorigin="anonymous" />
@@ -66,7 +66,7 @@ const createRestaurantJumbotronTemplate = (restaurant) => `
         <p tabindex="0">${restaurant.description}</p>
       </div>
     </div>
-    <img src=${API_ENDPOINT.IMG_RESTAURANT_LARGE}/${restaurant.pictureId} alt=${restaurant.name} crossorigin="anonymous"/>
+    <img class="lazyload" data-src=${API_ENDPOINT.IMG_RESTAURANT_LARGE}/${restaurant.pictureId} alt=${restaurant.name} crossorigin="anonymous"/>
 `;
 
 const createRestaurantDetailTemplate = (restaurant) => `

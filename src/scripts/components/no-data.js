@@ -1,7 +1,6 @@
 class NoDataFound extends HTMLElement {
   connectedCallback() {
     this.render();
-    this.appendChild(createImg('img', Images));
   }
 
   render() {
@@ -9,7 +8,7 @@ class NoDataFound extends HTMLElement {
         <div style="text-align:center;">
           <h2 class="no-data-text" tabindex="0">No favorite restaurants found!</h2>
           <p tabindex="0">You have no favorite restaurants yet</p>
-          <img tabindex="0" src="https://image.freepik.com/free-vector/no-data-concept-illustration_114360-626.jpg"
+          <img class="lazyload" data-src="https://image.freepik.com/free-vector/no-data-concept-illustration_114360-626.jpg" tabindex="0"
           style="display: block;
             margin-left: auto;
             margin-right: auto;
