@@ -2,14 +2,12 @@ import API_ENDPOINT from "../../global/api-endpoint";
 
 const createRestaurantItemTemplate = (restaurant) => `
       <article class="resto-list" tabindex="0">
-      <a href="/#/detail/${restaurant.id}" style="color: inherit; font: inherit; text-decoration: none;">
-        <div class="resto-image">
-        <img class="lazyload" data-src=${API_ENDPOINT.IMG_RESTAURANT}/${restaurant.pictureId} alt=${restaurant.name} crossorigin="anonymous" />
+      <a href="/#/detail/${restaurant.id}" aria-label="${restaurant.name}" style="color: inherit; font: inherit; text-decoration: none;">
+          <img class="lazyload" data-src=${API_ENDPOINT.IMG_RESTAURANT_SMALL}/${restaurant.pictureId} alt=${restaurant.name} crossorigin="anonymous" />
           <div class="text-block">
-          <span class="material-icons" tabindex="0">star_rate</span>
+            <span tabindex="0" aria-label="rating" style="font-size: 24px; vertical-align: middle;">&starf;</span>
             <span tabindex="0">${restaurant.rating}</span>
           </div>
-        </div>
         <div class="text">
           <a href="/#/detail/${restaurant.id}" class="card-restaurant-link" style="color:black">
               <h3>${restaurant.name}</h3>
@@ -18,7 +16,7 @@ const createRestaurantItemTemplate = (restaurant) => `
         </div>
         <hr>
         <div class="card-footer">
-          <span class="material-icons">location_on</span>
+          <span tabindex="0" aria-label="location" style="font-size: 24px; vertical-align: middle;">&#x1F4CD;</span>
             <span tabindex="0">${restaurant.city}</span>
         </div>
 
@@ -38,6 +36,7 @@ const createSkeletonRestaurantTemplate = (count) => {
           sizes="(max-width: 600px) 480px, 800px"
           alt="skeleton image" crossorigin="anonymous" />
           <div class="text-block">
+            <span tabindex="0" aria-label="rating" style="font-size: 24px; vertical-align: middle;">&starf;</span>
             <span tabindex="0">4</span>
           </div>
         </div>
@@ -49,6 +48,7 @@ const createSkeletonRestaurantTemplate = (count) => {
         </div>
         <hr>
         <div class="card-footer">
+            <span tabindex="0" aria-label="location" style="font-size: 24px; vertical-align: middle;">&#x1F4CD;</span>
             <tabindex="0">Restaurant City</tabindex=>
         </div>
       </article>

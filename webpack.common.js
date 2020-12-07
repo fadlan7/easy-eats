@@ -6,6 +6,15 @@ const path = require("path");
 const ImageminWebpackPlugin = require("imagemin-webpack-plugin").default;
 const ImageminMozpeg = require("imagemin-mozjpeg");
 const ImageminPngquant = require("imagemin-pngquant");
+const { ProgressPlugin } = require('webpack');
+const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const DevMode = process.env.NODE_ENV !== 'production';
+
+const handler = (percentage, message, ...args) => {
+  console.info(`${(percentage * 100).toFixed()}% ${message}`);
+};
+
 
 module.exports = {
   entry: path.resolve(__dirname, "src/scripts/index.js"),
@@ -19,17 +28,22 @@ module.exports = {
         test: /\.css$/,
         use: [
           {
-            loader: "style-loader",
+            loader: MiniCssExtractPlugin.loader,
           },
-          {
-            loader: "css-loader",
-          },
+          "css-loader?url=false",
         ],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif|webp|eot|ttf|woff)$/,
         use: [
-          'file-loader',
+          "file-loader",
+          {
+            loader: "image-webpack-loader",
+            options: {
+              bypassOnDebug: true,
+              disable: true,
+            },
+          },
         ],
       },
     ],
@@ -45,7 +59,7 @@ module.exports = {
           from: path.resolve(__dirname, "src/public/"),
           to: path.resolve(__dirname, "dist/"),
           globOptions: {
-            ignore: ['**/images/**'], // CopyWebpackPlugin mengabaikan berkas yang berada di dalam folder images
+            ignore: ["**/images/**"], // CopyWebpackPlugin mengabaikan berkas yang berada di dalam folder images
           },
         },
       ],
@@ -53,6 +67,7 @@ module.exports = {
     new ServiceWorkerWebpackPlugin({
       entry: path.resolve(__dirname, "src/scripts/sw.js"),
     }),
+    new ProgressPlugin(handler),
     new ImageminWebpackPlugin({
       plugins: [
         ImageminMozpeg({
@@ -64,5 +79,15 @@ module.exports = {
         }),
       ],
     }),
+    new MiniCssExtractPlugin({
+      filename: DevMode ? "[name].css" : "[name].[hash].css",
+      chunkFilename: DevMode ? "[id].css" : "[id].[hash].css",
+    }),
   ],
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new OptimizeCssAssetsPlugin({})
+    ],
+  },
 };
