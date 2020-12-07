@@ -54,9 +54,14 @@ var medQuery = window.matchMedia('(max-width:576px)');
 var barMenu = nav.querySelector('.menu-toggle');
 var logo = nav.querySelector('.logo');
 var i;
+logo.style.background = '#fff';
+
+for (i = 0; i < aTag.length; i++) {
+  aTag[i].style.color = '#fff';
+}
 
 window.onscroll = function () {
-  if (window.pageYOffset > 75) {
+  if (window.pageYOffset > 50) {
     nav.style.background = '#fff';
     nav.style.boxShadow = '0 6px 5px -2px gray';
     logo.style.background = 'transparent';
@@ -90,8 +95,7 @@ window.onscroll = function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var serviceworker_webpack_plugin_lib_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
-/* harmony import */ var serviceworker_webpack_plugin_lib_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(serviceworker_webpack_plugin_lib_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var workbox_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -100,25 +104,27 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 var swRegister = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+    var workbox;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             if (!('serviceWorker' in navigator)) {
-              _context.next = 4;
+              _context.next = 5;
               break;
             }
 
-            _context.next = 3;
-            return serviceworker_webpack_plugin_lib_runtime__WEBPACK_IMPORTED_MODULE_0___default.a.register();
-
-          case 3:
-            return _context.abrupt("return");
+            workbox = new workbox_window__WEBPACK_IMPORTED_MODULE_0__[/* Workbox */ "a"]('./sw.js');
+            _context.next = 4;
+            return workbox.register();
 
           case 4:
-            console.log('Service worker not supported in this browser');
+            return _context.abrupt("return");
 
           case 5:
+            console.log('Service worker not supported in this browser');
+
+          case 6:
           case "end":
             return _context.stop();
         }
@@ -201,14 +207,14 @@ var api_endpoint = __webpack_require__(1);
 
 
 var template_creator_createRestaurantItemTemplate = function createRestaurantItemTemplate(restaurant) {
-  return "\n      <article class=\"resto-list\" tabindex=\"0\">\n      <a href=\"/#/detail/".concat(restaurant.id, "\" aria-label=\"").concat(restaurant.name, "\" style=\"color: inherit; font: inherit; text-decoration: none;\">\n          <img class=\"lazyload\" data-src=").concat(api_endpoint["a" /* default */].IMG_RESTAURANT_SMALL, "/").concat(restaurant.pictureId, " alt=").concat(restaurant.name, " crossorigin=\"anonymous\" />\n          <div class=\"text-block\">\n            <span tabindex=\"0\" aria-label=\"rating\" style=\"font-size: 24px; vertical-align: middle;\">&starf;</span>\n            <span tabindex=\"0\">").concat(restaurant.rating, "</span>\n          </div>\n        <div class=\"text\">\n          <a href=\"/#/detail/").concat(restaurant.id, "\" class=\"card-restaurant-link\" style=\"color:black\">\n              <h3>").concat(restaurant.name, "</h3>\n          </a>\n          <p tabindex=\"0\">").concat(restaurant.description, "</p>\n        </div>\n        <hr>\n        <div class=\"card-footer\">\n          <span tabindex=\"0\" aria-label=\"location\" style=\"font-size: 24px; vertical-align: middle;\">&#x1F4CD;</span>\n            <span tabindex=\"0\">").concat(restaurant.city, "</span>\n        </div>\n\n      </a>\n      </article>\n    ");
+  return "\n      <article class=\"resto-list\" tabindex=\"0\">\n      <a href=\"/#/detail/".concat(restaurant.id, "\" aria-label=\"").concat(restaurant.name, "\" style=\"color: inherit; font: inherit; text-decoration: none;\">\n          <img class=\"lazyload\" data-src=").concat(api_endpoint["a" /* default */].IMG_RESTAURANT_SMALL, "/").concat(restaurant.pictureId, " alt=").concat(restaurant.name, " crossorigin=\"anonymous\" />\n          <div class=\"text-block\">\n            <span tabindex=\"0\" aria-label=\"rating\" style=\"font-size: 24px; vertical-align: middle;\">&starf;</span>\n            <span tabindex=\"0\">").concat(restaurant.rating, "</span>\n          </div>\n        <div class=\"text\">\n          <a href=\"/#/detail/").concat(restaurant.id, "\" class=\"card-restaurant-link\" style=\"color:black\">\n              <h3 style=\"white-space: nowrap; overflow: hidden; text-overflow: ellipsis;\">").concat(restaurant.name, "</h3>\n          </a>\n          <p tabindex=\"0\">").concat(restaurant.description, "</p>\n        </div>\n        <hr>\n        <div class=\"card-footer\">\n          <img tabindex=\"0\" aria-label=\"location\" style=\"width: 24px;margin: 0; vertical-align: middle; height: 24px;\" src=\"./icon/pin.png\" />\n          <span tabindex=\"0\">").concat(restaurant.city, "</span>\n        </div>\n\n      </a>\n      </article>\n    ");
 };
 
 var createSkeletonRestaurantTemplate = function createSkeletonRestaurantTemplate(count) {
   var template = "";
 
   for (var i = 0; i < count; i++) {
-    template += "\n      <article class=\"resto-list\" tabindex=\"0\">\n        <div class=\"resto-image\">\n          <img class=\"lazyload\" data-src=\"./images/placeholder-large.jpg\"\n          srcset=\"./images/placeholder-small.jpg 480w, ./images/placeholder-large.jpg 800w\"\n          sizes=\"(max-width: 600px) 480px, 800px\"\n          alt=\"skeleton image\" crossorigin=\"anonymous\" />\n          <div class=\"text-block\">\n            <span tabindex=\"0\" aria-label=\"rating\" style=\"font-size: 24px; vertical-align: middle;\">&starf;</span>\n            <span tabindex=\"0\">4</span>\n          </div>\n        </div>\n        <div class=\"text\">\n          <a class=\"card-restaurant-link\" style=\"color:black\">\n              <h3>Restaurant Name</h3>\n          </a>\n          <p tabindex=\"0\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis, enim.</p>\n        </div>\n        <hr>\n        <div class=\"card-footer\">\n            <span tabindex=\"0\" aria-label=\"location\" style=\"font-size: 24px; vertical-align: middle;\">&#x1F4CD;</span>\n            <tabindex=\"0\">Restaurant City</tabindex=>\n        </div>\n      </article>\n        ";
+    template += "\n      <article class=\"resto-list\" tabindex=\"0\">\n        <div class=\"resto-image\">\n          <img class=\"lazyload\" data-src=\"./images/placeholder-large.jpg\"\n          srcset=\"./images/placeholder-small.jpg 480w, ./images/placeholder-large.jpg 800w\"\n          sizes=\"(max-width: 600px) 480px, 800px\"\n          alt=\"skeleton image\" crossorigin=\"anonymous\" />\n          <div class=\"text-block\">\n            <span tabindex=\"0\" aria-label=\"rating\" style=\"font-size: 24px; vertical-align: middle;\">&starf;</span>\n            <span tabindex=\"0\">4</span>\n          </div>\n        </div>\n        <div class=\"text\">\n          <a class=\"card-restaurant-link\" style=\"color:black\">\n              <h3>Restaurant Name</h3>\n          </a>\n          <p tabindex=\"0\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis, enim.</p>\n        </div>\n        <hr>\n        <div class=\"card-footer\">\n            <img tabindex=\"0\" aria-label=\"location\" style=\"width: 24px;margin: 0; vertical-align: middle; height: 24px;\" src=\"./icon/pin.png\" />\n            <tabindex=\"0\">Restaurant City</tabindex=>\n        </div>\n      </article>\n        ";
   }
 
   return template;
@@ -219,7 +225,7 @@ var template_creator_createRestaurantJumbotronTemplate = function createRestaura
 };
 
 var createRestaurantDetailTemplate = function createRestaurantDetailTemplate(restaurant) {
-  return "\n\n    <h2 class=\"judul\" tabindex=\"0\">Restaurant Details</h2>\n      <div class=\"resto-detail-1\">\n        <div class=\"resto-detail-part1\">\n          <table>\n            <tbody>\n              <tr>\n                <td><span class=\"material-icons\">storefront</span></td>\n                <td><h3 class=\"title-restaurant\" tabindex=\"0\">".concat(restaurant.name, "</h3></td>\n              </tr>\n              <tr>\n                <td><span class=\"material-icons\">location_on</span></td>\n                <td tabindex=\"0\">").concat(restaurant.address, ", ").concat(restaurant.city, "</td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n\n        <div class=\"resto-detail-part2\">\n          <div id=\"rating\" aria-label=\"Rating: ").concat(restaurant.rating, "\" tabindex=\"0\">\n          <span class=\"text\">").concat(restaurant.rating, "</span>\n          <div class=\"star\" style=\"--rating: ").concat(restaurant.rating, ";\" id=\"star\" data-rating=\"").concat(restaurant.rating, "\">\u2605\u2605\u2605\u2605\u2605</div>\n          </div>\n        </div>\n      </div>\n\n      <div style=\"padding:10px\">\n        <p tabindex=\"0\">").concat(restaurant.description, "</p>\n\n        <h3 tabindex=\"0\">Categories</h3>\n          ").concat(restaurant.categories.map(function (categori) {
+  return "\n\n    <h2 class=\"judul\" tabindex=\"0\">Restaurant Details</h2>\n      <div class=\"resto-detail-1\">\n        <div class=\"resto-detail-part1\">\n          <table>\n            <tbody>\n              <tr>\n                <td><span class=\"material-icons\">storefront</span></td>\n                <td><h3 class=\"title-restaurant\" tabindex=\"0\">".concat(restaurant.name, "</h3></td>\n              </tr>\n              <tr>\n                <td><span class=\"material-icons\">location_on</span></td>\n                <td tabindex=\"0\">").concat(restaurant.address, ", ").concat(restaurant.city, "</td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n\n        <div class=\"resto-detail-part2\">\n          <div id=\"rating\" aria-label=\"Rating: ").concat(restaurant.rating, "\" tabindex=\"0\">\n          <span class=\"text\">").concat(restaurant.rating, "</span>\n          <div class=\"star\" style=\"--rating: ").concat(restaurant.rating, ";\" id=\"star\" data-rating=\"").concat(restaurant.rating, "\">\u2605\u2605\u2605\u2605\u2605</div>\n          </div>\n        </div>\n      </div>\n\n      <div>\n        <p tabindex=\"0\">").concat(restaurant.description, "</p>\n\n        <h3 tabindex=\"0\">Categories</h3>\n          ").concat(restaurant.categories.map(function (categori) {
     return "\n            <span class=\"category-name\" tabindex=\"0\">".concat(categori.name, "</span>\n          ");
   }).join(""), "\n\n        <h3 tabindex=\"0\">Foods</h3>\n        ").concat(restaurant.menus.foods.map(function (food) {
     return "\n          <span class=\"food-name\" tabindex=\"0\">".concat(food.name, "</span>\n        ");
@@ -679,7 +685,7 @@ var Detail = {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              return _context.abrupt("return", "\n      <div class=\"jumbotron-detail\" role=\"img\" aria-label=\"jumbotron\" title=\"jumbotron\">\n      </div>\n\n      <loading-indicator></loading-indicator>\n      <div class=\"detail-container\">\n          <div class=\"detail-resto-wrapper\"></div>\n\n          <div class=\"review-resto\">\n            <div class=\"review-container\">\n              <h2 class=\"judul\" tabindex=\"0\">Restaurant Review</h2>\n              <div class=\"review-item\"></div>\n            </div>\n\n            <div class=\"detail-form\">\n              <h2 class=\"judul\" tabindex=\"0\">Add New Review</h2>\n              <div id=\"formReviewContainer\"></div>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div id=\"likeButtonContainer\"></div>\n    ");
+              return _context.abrupt("return", "\n      <div class=\"jumbotron-detail\" role=\"img\" aria-label=\"jumbotron\" title=\"jumbotron\">\n      </div>\n\n      <loading-indicator></loading-indicator>\n      <div style=\"width: 100%\">\n        <div class=\"detail-container\">\n          <div class=\"detail-resto-wrapper\"></div>\n\n          <div class=\"review-resto\">\n            <div class=\"review-container\">\n              <h2 class=\"judul\" tabindex=\"0\">Restaurant Review</h2>\n              <div class=\"review-item\"></div>\n            </div>\n\n            <div class=\"detail-form\">\n              <h2 class=\"judul\" tabindex=\"0\">Add New Review</h2>\n              <div id=\"formReviewContainer\"></div>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div id=\"likeButtonContainer\"></div>\n    ");
 
             case 1:
             case "end":

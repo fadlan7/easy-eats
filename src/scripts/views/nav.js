@@ -35,8 +35,14 @@ const medQuery = window.matchMedia('(max-width:576px)');
 const barMenu = nav.querySelector('.menu-toggle');
 const logo = nav.querySelector('.logo');
 let i;
+
+logo.style.background = '#fff';
+for (i = 0; i < aTag.length; i++) {
+  aTag[i].style.color = '#fff';
+}
+
 window.onscroll = () => {
-  if (window.pageYOffset > 75) {
+  if (window.pageYOffset > 50) {
     nav.style.background = '#fff';
     nav.style.boxShadow = '0 6px 5px -2px gray';
     logo.style.background = 'transparent';

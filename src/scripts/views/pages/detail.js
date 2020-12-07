@@ -13,7 +13,8 @@ const Detail = {
       </div>
 
       <loading-indicator></loading-indicator>
-      <div class="detail-container">
+      <div style="width: 100%">
+        <div class="detail-container">
           <div class="detail-resto-wrapper"></div>
 
           <div class="review-resto">

@@ -10,14 +10,14 @@ const createRestaurantItemTemplate = (restaurant) => `
           </div>
         <div class="text">
           <a href="/#/detail/${restaurant.id}" class="card-restaurant-link" style="color:black">
-              <h3>${restaurant.name}</h3>
+              <h3 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${restaurant.name}</h3>
           </a>
           <p tabindex="0">${restaurant.description}</p>
         </div>
         <hr>
         <div class="card-footer">
-          <span tabindex="0" aria-label="location" style="font-size: 24px; vertical-align: middle;">&#x1F4CD;</span>
-            <span tabindex="0">${restaurant.city}</span>
+          <img tabindex="0" aria-label="location" style="width: 24px;margin: 0; vertical-align: middle; height: 24px;" src="./icon/pin.png" />
+          <span tabindex="0">${restaurant.city}</span>
         </div>
 
       </a>
@@ -48,7 +48,7 @@ const createSkeletonRestaurantTemplate = (count) => {
         </div>
         <hr>
         <div class="card-footer">
-            <span tabindex="0" aria-label="location" style="font-size: 24px; vertical-align: middle;">&#x1F4CD;</span>
+            <img tabindex="0" aria-label="location" style="width: 24px;margin: 0; vertical-align: middle; height: 24px;" src="./icon/pin.png" />
             <tabindex="0">Restaurant City</tabindex=>
         </div>
       </article>
@@ -102,7 +102,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
         </div>
       </div>
 
-      <div style="padding:10px">
+      <div>
         <p tabindex="0">${restaurant.description}</p>
 
         <h3 tabindex="0">Categories</h3>

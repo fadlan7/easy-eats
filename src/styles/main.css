@@ -183,7 +183,7 @@ body {
 
 #topnav .nav-link a {
   width: 100%;
-  font-weight: 400;
+  font-weight: bold;
   padding: 0.8em;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
@@ -371,22 +371,21 @@ article:hover img {
 
 /*Detail Page*/
 .detail-container {
-  width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit);
   grid-gap: 20px;
-  padding: 20px;
+  margin: 8px 10px;
+  padding: 10px;
   box-sizing: border-box;
   overflow: auto;
 }
 
 .detail-resto-wrapper {
-  /* grid-column: 1/3; */
+  padding: 15px;
   grid-column: 1;
   grid-row: 1;
   position: relative;
   box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
-  padding: 10px;
 }
 
 .box {
@@ -552,6 +551,7 @@ article:hover img {
   height: 15vh;
   margin-bottom: 20px;
   resize: vertical;
+  border: 1px black solid;
 }
 
 .detail-form button {
@@ -632,13 +632,9 @@ article:hover img {
   margin: auto;
   /* margin-bottom: 180px; */
   padding: 40px 0;
-  color: #000;
+  color: #fff;
   text-align: center;
 }
-
-/* .footer_content .greeeen {
-  color: #4ac061;
-} */
 
 /*Loading*/
 loading-indicator {

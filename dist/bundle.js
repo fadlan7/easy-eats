@@ -148,7 +148,7 @@
 /******/
 /******/
 /******/ 	// add entry module to deferred list
-/******/ 	deferredModules.push([11,2,3,1]);
+/******/ 	deferredModules.push([11,3,2,4,1]);
 /******/ 	// run deferred modules when ready
 /******/ 	return checkDeferredModules();
 /******/ })
@@ -696,7 +696,7 @@ var MyFooter = /*#__PURE__*/function (_HTMLElement) {
   }, {
     key: "render",
     value: function render() {
-      this.innerHTML = "\n          <footer class=\"fixed_footer footer\">\n            <div class=\"footer_content\">\n                <p class=\"whitetext\" tabindex=\"0\">Created by <strong>Fadlan Sayyidul Anam</strong></p>\n                <hr>\n                <span tabindex=\"0\">&copy; 2020</span> <b tabindex=\"0\">Easy <span class=\"greeeen\">Eats</span><b>\n            </div>\n          </footer>\n          ";
+      this.innerHTML = "\n          <footer class=\"fixed_footer footer\">\n            <div class=\"footer_content\">\n                <p tabindex=\"0\">Created by <strong>Fadlan Sayyidul Anam</strong></p>\n                <hr>\n                <span tabindex=\"0\">&copy; 2020</span> <b tabindex=\"0\">Easy <span>Eats</span><b>\n            </div>\n          </footer>\n          ";
     }
   }]);
 
@@ -756,7 +756,7 @@ var ErrorMessage = /*#__PURE__*/function (_HTMLElement) {
   }, {
     key: "render",
     value: function render() {
-      this.innerHTML = "\n        <div style=\"text-align:center; min-height:200px\">\n          <h2 tabindex=\"0\">Failed to load content!</h2>\n          <p tabindex=\"0\">Please refresh to try again.</p>\n        </div>\n      ";
+      this.innerHTML = "\n        <div style=\"text-align:center; min-height:200px\">\n          <h2 tabindex=\"0\">Failed to load content!</h2>\n          <p tabindex=\"0\">Please refresh to try again.</p>\n          <img class=\"lazyload\" data-src = \"https://image.freepik.com/free-vector/error-404-concept-landing-page_52683-12188.jpg\"\n              tabindex=\"0\"\n              style=\"display: block;\n              margin-left: auto;\n              margin-right: auto;\n              max-width: 320px;\n              width: 100%;\" alt=\"error image\"/>\n        </div>\n      ";
     }
   }]);
 
@@ -816,7 +816,7 @@ var NoDataFound = /*#__PURE__*/function (_HTMLElement) {
   }, {
     key: "render",
     value: function render() {
-      this.innerHTML = "\n        <div style=\"text-align:center; min-height:200px\">\n          <h2 class=\"no-data-text\" tabindex=\"0\">No favorite restaurants found!</h2>\n          <p tabindex=\"0\">You have no favorite restaurants yet</p>\n        </div>\n      ";
+      this.innerHTML = "\n        <div style=\"text-align:center; min-height:200px\">\n          <h2 class=\"no-data-text\" tabindex=\"0\">No favorite restaurants found!</h2>\n          <p tabindex=\"0\">You have no favorite restaurants yet</p>\n          <img class=\"lazyload\" data-src=\"https://image.freepik.com/free-vector/no-data-concept-illustration_114360-626.jpg\" tabindex=\"0\"\n          style=\"display: block;\n            margin-left: auto;\n            margin-right: auto;\n            max-width: 320px;\n            width: 100%;\" alt=\"error image\" />\n        </div>\n      ";
     }
   }]);
 
