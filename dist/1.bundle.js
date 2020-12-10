@@ -100,6 +100,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+/* eslint-disable import/no-extraneous-dependencies */
 
 
 var swRegister = /*#__PURE__*/function () {
@@ -204,6 +205,7 @@ var source = __webpack_require__(2);
 var api_endpoint = __webpack_require__(1);
 
 // CONCATENATED MODULE: ./src/scripts/views/templates/template-creator.js
+/* eslint-disable no-plusplus */
 
 
 var template_creator_createRestaurantItemTemplate = function createRestaurantItemTemplate(restaurant) {
@@ -211,7 +213,7 @@ var template_creator_createRestaurantItemTemplate = function createRestaurantIte
 };
 
 var createSkeletonRestaurantTemplate = function createSkeletonRestaurantTemplate(count) {
-  var template = "";
+  var template = '';
 
   for (var i = 0; i < count; i++) {
     template += "\n      <article class=\"resto-list\" tabindex=\"0\">\n        <div class=\"resto-image\">\n          <img class=\"lazyload\" data-src=\"./images/placeholder-large.jpg\"\n          srcset=\"./images/placeholder-small.jpg 480w, ./images/placeholder-large.jpg 800w\"\n          sizes=\"(max-width: 600px) 480px, 800px\"\n          alt=\"skeleton image\" crossorigin=\"anonymous\" />\n          <div class=\"text-block\">\n            <span tabindex=\"0\" aria-label=\"rating\" style=\"font-size: 24px; vertical-align: middle;\">&starf;</span>\n            <span tabindex=\"0\">4</span>\n          </div>\n        </div>\n        <div class=\"text\">\n          <a class=\"card-restaurant-link\" style=\"color:black\">\n              <h3>Restaurant Name</h3>\n          </a>\n          <p tabindex=\"0\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis, enim.</p>\n        </div>\n        <hr>\n        <div class=\"card-footer\">\n            <img tabindex=\"0\" aria-label=\"location\" style=\"width: 24px;margin: 0; vertical-align: middle; height: 24px;\" src=\"./icon/pin.png\" />\n            <tabindex=\"0\">Restaurant City</tabindex=>\n        </div>\n      </article>\n        ";
@@ -227,7 +229,7 @@ var template_creator_createRestaurantJumbotronTemplate = function createRestaura
 var createRestaurantDetailTemplate = function createRestaurantDetailTemplate(restaurant) {
   return "\n\n    <h2 class=\"judul\" tabindex=\"0\">Restaurant Details</h2>\n      <div class=\"resto-detail-1\">\n        <div class=\"resto-detail-part1\">\n          <table>\n            <tbody>\n              <tr>\n                <td><span class=\"material-icons\">storefront</span></td>\n                <td><h3 class=\"title-restaurant\" tabindex=\"0\">".concat(restaurant.name, "</h3></td>\n              </tr>\n              <tr>\n                <td><span class=\"material-icons\">location_on</span></td>\n                <td tabindex=\"0\">").concat(restaurant.address, ", ").concat(restaurant.city, "</td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n\n        <div class=\"resto-detail-part2\">\n          <div id=\"rating\" aria-label=\"Rating: ").concat(restaurant.rating, "\" tabindex=\"0\">\n          <span class=\"text\">").concat(restaurant.rating, "</span>\n          <div class=\"star\" style=\"--rating: ").concat(restaurant.rating, ";\" id=\"star\" data-rating=\"").concat(restaurant.rating, "\">\u2605\u2605\u2605\u2605\u2605</div>\n          </div>\n        </div>\n      </div>\n\n      <div>\n        <p tabindex=\"0\">").concat(restaurant.description, "</p>\n\n        <h3 tabindex=\"0\">Categories</h3>\n          ").concat(restaurant.categories.map(function (categori) {
     return "\n            <span class=\"category-name\" tabindex=\"0\">".concat(categori.name, "</span>\n          ");
-  }).join(""), "\n\n        <h3 tabindex=\"0\">Foods</h3>\n        ").concat(restaurant.menus.foods.map(function (food) {
+  }).join(''), "\n\n        <h3 tabindex=\"0\">Foods</h3>\n        ").concat(restaurant.menus.foods.map(function (food) {
     return "\n          <span class=\"food-name\" tabindex=\"0\">".concat(food.name, "</span>\n        ");
   }), "\n\n        <h3 tabindex=\"0\">Drinks</h3>\n        ").concat(restaurant.menus.drinks.map(function (drink) {
     return "\n          <span class=\"drink-name\" tabindex=\"0\">".concat(drink.name, "</span>\n        ");
@@ -237,7 +239,7 @@ var createRestaurantDetailTemplate = function createRestaurantDetailTemplate(res
 var createRestaurantReviewTemplate = function createRestaurantReviewTemplate(restaurant) {
   return "\n      ".concat(restaurant.customerReviews.map(function (review) {
     return "\n          <div class=\"review-card\">\n            <span class=\"material-icons\" style=\"margin-right:10px\">\n            account_circle\n            </span>\n            <div class=\"review-content\">\n              <div class=\"review-name\" tabindex=\"0\">\n              ".concat(review.name, "\n              </div>\n              <div class=\"review-date\" tabindex=\"0\">\n              ").concat(review.date, "\n              </div>\n              <div class=\"review-message\" tabindex=\"0\">\n              ").concat(review.review, "\n              </div>\n            </div>\n          </div>\n        ");
-  }).join(""), "\n");
+  }).join(''), "\n");
 };
 
 var createFormReviewTemplate = function createFormReviewTemplate() {
@@ -331,6 +333,7 @@ function favorite_asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, a
 
 function favorite_asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { favorite_asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { favorite_asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+/* eslint-disable no-shadow */
 
 
 var Favorite = {

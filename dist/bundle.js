@@ -441,19 +441,6 @@ var FavoriteRestaurantIdb = {
         }
       }, _callee4);
     }))();
-  },
-  searchRestaurants: function searchRestaurants(query) {
-    return _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5() {
-      return regeneratorRuntime.wrap(function _callee5$(_context5) {
-        while (1) {
-          switch (_context5.prev = _context5.next) {
-            case 0:
-            case "end":
-              return _context5.stop();
-          }
-        }
-      }, _callee5);
-    }))();
   }
 };
 /* harmony default export */ __webpack_exports__["a"] = (FavoriteRestaurantIdb);
@@ -576,7 +563,7 @@ var MyNav = /*#__PURE__*/function (_HTMLElement) {
   }, {
     key: "render",
     value: function render() {
-      this.innerHTML = "\n          <nav class=\"nav-container container\">\n            <a href=\"#/\" class=\"home-link\">\n                <div class=\"logo\">\n                    <img class=\"lazyload\" alt=\"logo\" data-src=\"./icon/android-icon-192x192-dunplab-manifest-21129.png\">\n                </div>\n            </a>\n            <button type=\"button\" class=\"menu-toggle\" aria-label=\"Open navigation menu\">\n                <span class=\"icon-bar\"></span>\n                <span class=\"icon-bar\"></span>\n                <span class=\"icon-bar\"></span>\n            </button>\n            <div class=\"nav-menu\">\n                <ul class=\"nav-links\">\n                    <li class=\"nav-link\"><a href=\"#/\">Home</a></li>\n                    <li class=\"nav-link\"><a href=\"#/favorite\">Favorite</a></li>\n                    <li class=\"nav-link\"><a href=\"https://github.com/fadlan7\" target=\"_blank\" rel=\"noopener\">About Us</a></li>\n                </ul>\n            </div>\n        </nav>\n        ";
+      this.innerHTML = "\n          <nav class=\"nav-container container\">\n            <a href=\"#/\" class=\"home-link\">\n                <div class=\"logo\">\n                    <img class=\"lazyload\" alt=\"logo\" data-src=\"./icon/icon-384x384.png\">\n                </div>\n            </a>\n            <button type=\"button\" class=\"menu-toggle\" aria-label=\"Open navigation menu\">\n                <span class=\"icon-bar\"></span>\n                <span class=\"icon-bar\"></span>\n                <span class=\"icon-bar\"></span>\n            </button>\n            <div class=\"nav-menu\">\n                <ul class=\"nav-links\">\n                    <li class=\"nav-link\"><a href=\"#/\">Home</a></li>\n                    <li class=\"nav-link\"><a href=\"#/favorite\">Favorite</a></li>\n                    <li class=\"nav-link\"><a href=\"https://github.com/fadlan7\" target=\"_blank\" rel=\"noopener\">About Us</a></li>\n                </ul>\n            </div>\n        </nav>\n        ";
     }
   }]);
 

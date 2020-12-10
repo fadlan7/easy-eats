@@ -212,12 +212,14 @@ body {
   display: flex;
   align-items: center;
   min-height: 460px;
-  width: 100vw;
+  width: 100%;
   text-align: center;
-  background-image: url("/images/hero-image_2-xl.jpg");
+  background: url("/images/hero-image_2-xl.jpg");
   background-position: center;
   background-color: rgb(128, 128, 128);
   position: relative;
+  object-fit: cover;
+  background-size: cover;
 }
 
 .jumbotron-inner {
@@ -398,16 +400,16 @@ article:hover img {
   text-align: center;
   width: 120px;
   display: inline-block;
-  margin-left: 50px;
 }
 
 #rating span.text {
-  font-size: 14px;
+  font-size: 20px;
   color: #515454;
+  font-weight: bold;
 }
 
 #rating .star {
-  font-size: 20px;
+  font-size: 25px;
   font-family: Times;
   line-height: 1;
   letter-spacing: 3px;
@@ -624,7 +626,7 @@ article:hover img {
   width: 100%;
   bottom: 0;
   margin-top: 30px;
-  background-color: rgba(0, 128, 128, 0.8);
+  background-color:rgba(0, 97, 97, 1);
 }
 
 .footer_content {

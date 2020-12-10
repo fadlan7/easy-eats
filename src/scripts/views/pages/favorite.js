@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import FavoriteRestaurantIdb from '../../data/idb';
 import { createRestaurantItemTemplate } from '../templates/template-creator';
 

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { Workbox } from 'workbox-window';
 
 const swRegister = async () => {
